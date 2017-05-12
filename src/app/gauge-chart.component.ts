@@ -15,4 +15,4 @@ import { Component } from '@angular/core';
     </main>
   `
 })
-export class AppComponent {}
+export class GaugeChartComponent {}
