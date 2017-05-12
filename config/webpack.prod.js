@@ -37,7 +37,6 @@ const METADATA = webpackMerge(commonConfig({
   host: HOST,
   port: PORT,
   ENV: ENV,
-  HMR: false
 });
 
 module.exports = function (env) {
@@ -130,11 +129,9 @@ module.exports = function (env) {
       // NOTE: when adding more properties make sure you include them in custom-typings.d.ts
       new DefinePlugin({
         'ENV': JSON.stringify(METADATA.ENV),
-        'HMR': METADATA.HMR,
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),
-          'HMR': METADATA.HMR,
         }
       }),
 
@@ -184,17 +181,6 @@ module.exports = function (env) {
           negate_iife: false // we need this for lazy v8
         },
       }),
-
-      /**
-       * Plugin: NormalModuleReplacementPlugin
-       * Description: Replace resources that matches resourceRegExp with newResource
-       *
-       * See: http://webpack.github.io/docs/list-of-plugins.html#normalmodulereplacementplugin
-       */
-      new NormalModuleReplacementPlugin(
-        /angular2-hmr/,
-        helpers.root('config/empty.js')
-      ),
 
       new NormalModuleReplacementPlugin(
         /zone\.js(\\|\/)dist(\\|\/)long-stack-trace-zone/,
