@@ -3,10 +3,8 @@
  */
 import {
   Component,
-  OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import { AppState } from './app.service';
 
 /**
  * App Component
@@ -22,20 +20,9 @@ import { AppState } from './app.service';
     <main>
       <router-outlet></router-outlet>
     </main>
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
   `
 })
-export class AppComponent implements OnInit {
-  constructor(
-    public appState: AppState
-  ) {}
-
-  public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
-  }
-
-}
+export class AppComponent {}
 
 /**
  * Please review the https://github.com/AngularClass/angular2-examples/ repo for

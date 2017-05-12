@@ -89,36 +89,6 @@ module.exports = function (options) {
       libraryTarget: 'var',
     },
 
-    module: {
-
-      rules: [
-
-        /**
-         * Css loader support for *.css files (styles directory only)
-         * Loads external css styles into the DOM, supports HMR
-         *
-         */
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
-          include: [helpers.root('src', 'styles')]
-        },
-
-        /**
-         * Sass loader support for *.scss files (styles directory only)
-         * Loads external sass styles into the DOM, supports HMR
-         *
-         */
-        {
-          test: /\.scss$/,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
-          include: [helpers.root('src', 'styles')]
-        },
-
-      ]
-
-    },
-
     plugins: [
 
       /**
@@ -163,7 +133,6 @@ module.exports = function (options) {
             '@angular/forms',
             '@angular/http',
             '@angular/router',
-            '@angularclass/hmr',
             'rxjs',
           ]
         },
