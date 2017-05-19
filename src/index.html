@@ -18,9 +18,10 @@
 
 <body>
 
-  <app>
-    Loading...
-  </app>
+  <gauge-chart
+  [needleValue] = "20"
+  [chartWidth] = "500"
+  ></gauge-chart>
 
   <% if (htmlWebpackPlugin.options.metadata.isDevServer) { %>
   <!-- Webpack Dev Server reload -->
