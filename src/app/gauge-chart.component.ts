@@ -1,7 +1,7 @@
 /**
  * Angular 2 decorators and services
  */
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core'
 import * as GaugeChart from 'gauge-chart'
 
 /**
@@ -14,12 +14,10 @@ import * as GaugeChart from 'gauge-chart'
     <div id="gaugeArea"></div>
   `
 })
-export class GaugeChartComponent {
+export class GaugeChartComponent implements OnInit {
 
   @Input() needleValue: number
   @Input() chartWidth: number
-
-  constructor() {}
 
   ngOnInit() {
     console.log(this.needleValue)
