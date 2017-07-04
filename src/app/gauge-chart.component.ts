@@ -15,12 +15,13 @@ import * as GaugeChart from 'gauge-chart'
   `
 })
 export class GaugeChartComponent implements OnInit {
+  @Input() needlevalue: string
+  @Input() chartwidth: string
 
-  @Input() needleValue: number
-  @Input() chartWidth: number
+  @Input() test: string
 
   ngOnInit() {
-    console.log(this.needleValue)
+    console.log(this.test)
     // Element inside which you want to see the chart
     let element = document.querySelector('#gaugeArea')
 

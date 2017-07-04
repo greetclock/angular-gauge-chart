@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Component } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 /*
@@ -29,4 +29,5 @@ import { GaugeChartComponent } from './gauge-chart.component';
     ENV_PROVIDERS,
   ]
 })
+
 export class AppModule {}
