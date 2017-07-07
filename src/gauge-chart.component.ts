@@ -1,24 +1,23 @@
 /**
  * Angular 2 decorators and services
  */
-import { Component, Input, OnChanges, OnInit } from '@angular/core'
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core'
 import * as GaugeChart from 'gauge-chart'
 
 /**
  * GaugeChart Component
- * Second Level Component
  */
 @Component({
   selector: 'gauge-chart',
   template: `
-    <div id="gaugeArea"></div>
+    <div #gaugeArea></div>
   `
 })
-export class GaugeChartComponent implements OnInit {
-  //@Input() gaugeOptions
-  @Input() elementName
-  @Input() canvasWidth
-  @Input() needleValue
+export class GaugeChartComponent implements OnInit, OnChanges {
+  @ViewChild('gaugeArea') gaugeArea
+
+  @Input() canvasWidth: number
+  @Input() needleValue: number
   @Input() extraGaugeOptions
 
   private element
@@ -26,8 +25,7 @@ export class GaugeChartComponent implements OnInit {
 
   ngOnInit() {
     if (this.optionsCheck()) {
-      this.element = document.querySelector('#' + this.elementName)
-      //view child native element
+      this.element = this.gaugeArea.nativeElement
 
       this.gaugeChart = GaugeChart // Drawing and updating the chart
         .gaugeChart(this.element, this.canvasWidth, this.extraGaugeOptions)
@@ -36,10 +34,7 @@ export class GaugeChartComponent implements OnInit {
   }
 
   optionsCheck() {
-    if (this.elementName == null) {
-      console.warn('gauge-chart warning: elementName is not specified!')
-      return false
-    } else if (this.canvasWidth == null) {
+    if (this.canvasWidth == null) {
       console.warn('gauge-chart warning: canvasWidth is not specified!')
       return false
     } else if (this.needleValue == null) {
@@ -53,13 +48,16 @@ export class GaugeChartComponent implements OnInit {
     if (!changes.needleValue.firstChange) {
       if (changes.needleValue &&
       changes.needleValue.currentValue !== changes.needleValue.previousValue) {
-       this.gaugeChart.updateNeedle(this.needleValue)
+        this.needleValue = changes.needleValue.currentValue
+        this.gaugeChart.updateNeedle(this.needleValue)
       }
       if (changes.extraGaugeOptions &&
       changes.extraGaugeOptions.currentValue !== changes.extraGaugeOptions.previousValue) {
-        this.extraGaugeOptions = changes.extraGaugeOptions
-        this.gaugeChart = GaugeChart // Drawing and updating the chart
-        .gaugeChart(this.element, this.canvasWidth, this.extraGaugeOptions)
+        this.gaugeChart.removeGauge()
+        this.extraGaugeOptions = changes.extraGaugeOptions.currentValue
+        this.gaugeChart = GaugeChart
+          .gaugeChart(this.element, this.canvasWidth, this.extraGaugeOptions)
+        this.gaugeChart.updateNeedle(this.needleValue)
       }
     }
   }

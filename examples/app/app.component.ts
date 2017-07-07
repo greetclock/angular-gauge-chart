@@ -11,21 +11,17 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app',
   template: `
     <gauge-chart
-     [elementName]="elementName"
      [canvasWidth]="canvasWidth"
      [needleValue]="needleValue"
      [extraGaugeOptions]="extraGaugeOptions"></gauge-chart>
   `
 })
 export class AppComponent implements OnInit {
-  public elementName
-  public canvasWidth
-  public needleValue
+  public canvasWidth: number
+  public needleValue: number
   public extraGaugeOptions
-  public initialGaugeOptions
 
   ngOnInit() {
-    this.elementName = 'gaugeArea'
     this.canvasWidth = 300
     this.needleValue = 0
     this.extraGaugeOptions = {
@@ -40,6 +36,6 @@ export class AppComponent implements OnInit {
 
     setInterval(() => {
         this.needleValue += 10
-      }, 1000)
+      }, 10000)
   }
 }
