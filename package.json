@@ -16,7 +16,7 @@
     "build:aot": "npm run build:aot:prod",
     "build:dev": "npm run clean:dist && npm run webpack -- --config examples/config/webpack.dev.js --progress --profile",
     "build:prod": "npm run clean:dist && npm run webpack -- --config examples/config/webpack.prod.js  --progress --profile --bail",
-    "build": "npm run build:dev",
+    "build": "ENV=production webpack --config config/webpack.config.js",
     "clean:dll": "npm run rimraf -- dll",
     "clean:aot": "npm run rimraf -- compiled",
     "clean:dist": "npm run rimraf -- dist",
@@ -60,6 +60,7 @@
     "ie-shim": "^0.1.0",
     "reflect-metadata": "^0.1.10",
     "rxjs": "5.0.2",
+    "typedoc-webpack-plugin": "^1.1.4",
     "zone.js": "~0.8.5"
   },
   "devDependencies": {
