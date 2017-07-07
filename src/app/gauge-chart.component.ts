@@ -5,8 +5,8 @@ import { Component, Input, OnInit } from '@angular/core'
 import * as GaugeChart from 'gauge-chart'
 
 /**
- * App Component
- * Top Level Component
+ * GaugeChart Component
+ * Second Level Component
  */
 @Component({
   selector: 'gauge-chart',
@@ -15,30 +15,29 @@ import * as GaugeChart from 'gauge-chart'
   `
 })
 export class GaugeChartComponent implements OnInit {
-  @Input() needlevalue: string
-  @Input() chartwidth: string
-
-  @Input() test: string
+  @Input() gaugeOptions
 
   ngOnInit() {
-    console.log(this.test)
-    // Element inside which you want to see the chart
-    let element = document.querySelector('#gaugeArea')
+    if (this.optionsCheck()) {
+      let element = document.querySelector('#' + this.gaugeOptions.elementName)
 
-    // Properties of the gauge
-    let gaugeOptions = {
-      hasNeedle: true,
-      needleColor: 'gray',
-      needleUpdateSpeed: 1000,
-      arcColors: ['rgb(44, 151, 222)', 'lightgray'],
-      arcDelimiters: [30],
-      rangeLabel: ['0', '100'],
-      centralLabel: '50',
+      GaugeChart // Drawing and updating the chart
+        .gaugeChart(element, this.gaugeOptions.canvasWidth, this.gaugeOptions.gaugeOptions)
+        .updateNeedle(this.gaugeOptions.needleValue)
     }
+  }
 
-    // Drawing and updating the chart
-    GaugeChart
-      .gaugeChart(element, 300, gaugeOptions)
-      .updateNeedle(50)
+  optionsCheck() {
+    if (!this.gaugeOptions.elementName) {
+      console.warn('gauge-chart warning: elementName is not specified!')
+      return false
+    } else if (!this.gaugeOptions.canvasWidth) {
+      console.warn('gauge-chart warning: canvasWidth is not specified!')
+      return false
+    } else if (!this.gaugeOptions.needleValue) {
+      console.warn('gauge-chart warning: needleValue is not specified!')
+      return false
+    }
+    return true
   }
 }
