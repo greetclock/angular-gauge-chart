@@ -32,6 +32,8 @@ const METADATA = {
   isDevServer: helpers.isWebpackDevServer(),
 };
 
+console.log('HERE', helpers.root('examples/index.html'))
+
 /**
  * Webpack configuration
  *
@@ -81,7 +83,7 @@ module.exports = function (options) {
       /**
        * An array of directory names to be resolved to the current directory
        */
-      modules: [helpers.root('src'), helpers.root('node_modules')],
+      modules: [helpers.root('src'), helpers.root('../node_modules')],
 
     },
 
@@ -174,7 +176,7 @@ module.exports = function (options) {
         {
           test: /\.html$/,
           use: 'raw-loader',
-          exclude: [helpers.root('examples/index.html')]
+          exclude: [helpers.root('index.html')]
         },
 
         /**
