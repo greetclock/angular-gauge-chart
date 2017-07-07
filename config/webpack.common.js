@@ -58,9 +58,9 @@ module.exports = function (options) {
      */
     entry: {
 
-      'polyfills': './src/polyfills.browser.ts',
-      'main':      AOT ? './src/main.browser.aot.ts' :
-                  './src/main.browser.ts'
+      'polyfills': './examples/polyfills.browser.ts',
+      'main':      AOT ? './examples/main.browser.aot.ts' :
+                  './examples/main.browser.ts'
 
     },
 
@@ -174,7 +174,7 @@ module.exports = function (options) {
         {
           test: /\.html$/,
           use: 'raw-loader',
-          exclude: [helpers.root('src/index.html')]
+          exclude: [helpers.root('examples/index.html')]
         },
 
         /**
@@ -249,7 +249,7 @@ module.exports = function (options) {
        * See: https://github.com/ampedandwired/html-webpack-plugin
        */
       new HtmlWebpackPlugin({
-        template: 'src/index.html',
+        template: 'examples/index.html',
         title: METADATA.title,
         chunksSortMode: 'dependency',
         metadata: METADATA,
