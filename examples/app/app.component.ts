@@ -13,17 +13,20 @@ import { Component, OnInit } from '@angular/core';
     <gauge-chart
      [canvasWidth]="canvasWidth"
      [needleValue]="needleValue"
+     [centralLabel]="centralLabel"
      [extraGaugeOptions]="extraGaugeOptions"></gauge-chart>
   `
 })
 export class AppComponent implements OnInit {
   public canvasWidth: number
   public needleValue: number
+  public centralLabel: string
   public extraGaugeOptions
 
   ngOnInit() {
-    this.canvasWidth = 300
+    this.canvasWidth = 500
     this.needleValue = 0
+    this.centralLabel = '' + this.needleValue
     this.extraGaugeOptions = {
         hasNeedle: true,
         needleColor: 'gray',
@@ -31,11 +34,11 @@ export class AppComponent implements OnInit {
         arcColors: ['rgb(44, 151, 222)', 'lightgray'],
         arcDelimiters: [30],
         rangeLabel: ['0', '100'],
-        centralLabel: '' + this.needleValue,
       }
 
-    setInterval(() => {
+    /*setInterval(() => {
         this.needleValue += 10
-      }, 10000)
+        this.centralLabel = '' + this.needleValue
+      }, 10000)*/
   }
 }

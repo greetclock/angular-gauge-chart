@@ -18,6 +18,7 @@ export class GaugeChartComponent implements OnInit, OnChanges {
 
   @Input() canvasWidth: number
   @Input() needleValue: number
+  @Input() centralLabel: string
   @Input() extraGaugeOptions
 
   private element
@@ -26,7 +27,7 @@ export class GaugeChartComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (this.optionsCheck()) {
       this.element = this.gaugeArea.nativeElement
-
+      this.extraGaugeOptions.centralLabel = this.centralLabel
       this.gaugeChart = GaugeChart // Drawing and updating the chart
         .gaugeChart(this.element, this.canvasWidth, this.extraGaugeOptions)
       this.gaugeChart.updateNeedle(this.needleValue)
@@ -41,6 +42,9 @@ export class GaugeChartComponent implements OnInit, OnChanges {
       console.warn('gauge-chart warning: needleValue is not specified!')
       return false
     }
+    if (this.centralLabel == null) {
+      this.centralLabel = ''
+    }
     return true
   }
 
@@ -51,10 +55,11 @@ export class GaugeChartComponent implements OnInit, OnChanges {
         this.needleValue = changes.needleValue.currentValue
         this.gaugeChart.updateNeedle(this.needleValue)
       }
-      if (changes.extraGaugeOptions &&
-      changes.extraGaugeOptions.currentValue !== changes.extraGaugeOptions.previousValue) {
+      if (changes.centralLabel &&
+      changes.centralLabel.currentValue !== changes.centralLabel.previousValue) {
         this.gaugeChart.removeGauge()
-        this.extraGaugeOptions = changes.extraGaugeOptions.currentValue
+        this.centralLabel = changes.centralLabel.currentValue
+        this.extraGaugeOptions.centralLabel = this.centralLabel
         this.gaugeChart = GaugeChart
           .gaugeChart(this.element, this.canvasWidth, this.extraGaugeOptions)
         this.gaugeChart.updateNeedle(this.needleValue)

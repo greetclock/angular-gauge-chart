@@ -26,12 +26,13 @@ module.exports = function () {
         options: {
           configFileName: 'tsconfig.json',
         },
-        exclude: [/\.(spec|e2e)\.ts$/],
+        exclude: [/\.(spec|e2e)\.ts$/, path.resolve(__dirname, '/examples')],
       }, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           use: 'css-loader',
         }),
+        exclude: [path.resolve(__dirname, '/examples')],
       }],
     },
     resolve: {
