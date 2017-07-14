@@ -13,6 +13,7 @@
   "homepage": "https://github.com/angularclass/angular2-webpack-starter",
   "license": "MIT",
   "scripts": {
+    "build": "npm run webpack -- --config config/webpack.config.js",
     "build:dev": "npm run clean:dist && npm run webpack -- --config examples/config/webpack.dev.js --progress --profile",
     "clean:dist": "npm run rimraf -- dist",
     "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist compiled dll",
