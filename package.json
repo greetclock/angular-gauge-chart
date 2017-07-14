@@ -8,6 +8,7 @@
     "webpack",
     "typescript"
   ],
+  "main": "dist/bundle.js",
   "author": "Patrick Stapleton <patrick@angularclass.com>",
   "homepage": "https://github.com/angularclass/angular2-webpack-starter",
   "license": "MIT",
