@@ -14,20 +14,20 @@ import { Component, OnInit } from '@angular/core';
      [canvasWidth]="canvasWidth"
      [needleValue]="needleValue"
      [centralLabel]="centralLabel"
-     [extraGaugeOptions]="extraGaugeOptions"></gauge-chart>
+     [options]="options"></gauge-chart>
   `
 })
 export class AppComponent implements OnInit {
   public canvasWidth: number
   public needleValue: number
   public centralLabel: string
-  public extraGaugeOptions
+  public options
 
   ngOnInit() {
     this.canvasWidth = 500
     this.needleValue = 0
     this.centralLabel = '' + this.needleValue
-    this.extraGaugeOptions = {
+    this.options = {
         hasNeedle: true,
         needleColor: 'gray',
         needleUpdateSpeed: 1000,

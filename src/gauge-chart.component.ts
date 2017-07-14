@@ -19,7 +19,7 @@ export class GaugeChartComponent implements OnInit, OnChanges {
   @Input() canvasWidth: number
   @Input() needleValue: number
   @Input() centralLabel: string
-  @Input() extraGaugeOptions
+  @Input() options
 
   private element
   private gaugeChart: any
@@ -27,9 +27,9 @@ export class GaugeChartComponent implements OnInit, OnChanges {
   ngOnInit() {
     if (this.optionsCheck()) {
       this.element = this.gaugeArea.nativeElement
-      this.extraGaugeOptions.centralLabel = this.centralLabel
+      this.options.centralLabel = this.centralLabel
       this.gaugeChart = GaugeChart // Drawing and updating the chart
-        .gaugeChart(this.element, this.canvasWidth, this.extraGaugeOptions)
+        .gaugeChart(this.element, this.canvasWidth, this.options)
       this.gaugeChart.updateNeedle(this.needleValue)
     }
   }
@@ -59,9 +59,9 @@ export class GaugeChartComponent implements OnInit, OnChanges {
       changes.centralLabel.currentValue !== changes.centralLabel.previousValue) {
         this.gaugeChart.removeGauge()
         this.centralLabel = changes.centralLabel.currentValue
-        this.extraGaugeOptions.centralLabel = this.centralLabel
+        this.options.centralLabel = this.centralLabel
         this.gaugeChart = GaugeChart
-          .gaugeChart(this.element, this.canvasWidth, this.extraGaugeOptions)
+          .gaugeChart(this.element, this.canvasWidth, this.options)
         this.gaugeChart.updateNeedle(this.needleValue)
       }
     }
