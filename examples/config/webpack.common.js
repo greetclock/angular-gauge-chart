@@ -125,7 +125,7 @@ module.exports = function (options) {
             {
               loader: 'awesome-typescript-loader',
               options: {
-                configFileName: 'tsconfig.webpack.json',
+                configFileName: 'tsconfig.json',
                 useCache: !isProd
               }
             },
@@ -302,7 +302,7 @@ module.exports = function (options) {
 
       new ngcWebpack.NgcWebpackPlugin({
         disabled: !AOT,
-        tsConfig: helpers.root('tsconfig.webpack.json'),
+        tsConfig: helpers.root('tsconfig.json'),
         resourceOverride: helpers.root('config/resource-override.js')
       }),
 

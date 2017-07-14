@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { Component, NgModule } from '@angular/core';
 
 /*
@@ -20,7 +19,7 @@ import { GaugeChartComponent } from './gauge-chart.component';
    * Import Angular's modules.
    */
   imports: [
-    BrowserModule,
+    // BrowserModule,
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.
