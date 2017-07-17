@@ -48,7 +48,9 @@ module.exports = function () {
        new DefinePlugin({
          ENV: `'production'`,
        }),
-       new UglifyJsPlugin({}),
+       new UglifyJsPlugin({
+         comments: false,
+       }),
     ],
   }
 }
