@@ -1,6 +1,6 @@
 {
   "name": "angular-gauge-chart",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
   "keywords": [
     "angular",
@@ -38,7 +38,11 @@
     "@angularclass/conventions-loader": "^1.0.13",
     "core-js": "^2.4.1",
     "rxjs": "5.0.2",
-    "zone.js": "~0.8.5"
+    "zone.js": "~0.8.5",
+    "gauge-chart": "git+ssh://git@bitbucket.org:recogizer/gauge-chart.git"
+  },
+  "peerDependencies": {
+    "gauge-chart": "git+ssh://git@bitbucket.org:recogizer/gauge-chart.git"
   },
   "devDependencies": {
     "@angular/platform-browser": "~4.0.3",

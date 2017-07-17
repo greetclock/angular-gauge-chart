@@ -36,7 +36,7 @@ module.exports = function () {
     },
     externals: {
       '@angular/core': '@angular/core',
-      
+      'gauge-chart': 'gauge-chart',
     },
     resolve: {
       extensions: ['.ts', '.js', '.css'],
