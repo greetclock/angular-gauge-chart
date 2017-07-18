@@ -9,9 +9,8 @@ import * as GaugeChart from 'gauge-chart'
  */
 @Component({
   selector: 'gauge-chart',
-  template: `
-    <div #gaugeArea></div>
-  `
+  templateUrl: './gauge-chart.component.html',
+  styleUrls: [ './gauge-chart.component.scss' ],
 })
 export class GaugeChartComponent implements OnInit, OnChanges {
   @ViewChild('gaugeArea') gaugeArea
@@ -20,11 +19,33 @@ export class GaugeChartComponent implements OnInit, OnChanges {
   @Input() needleValue: number
   @Input() centralLabel: string
   @Input() options
+  @Input() name: string
+  @Input() nameFont: string
+  @Input() bottomLabel: string
+  @Input() bottomLabelFont: string
+
+  public nameMargin: string
+  public bottomLabelMargin: string
 
   private element
   private gaugeChart: any
 
   ngOnInit() {
+    // calculate styles for name and bottomLabel
+    if (this.name) {
+      if (!this.nameFont) {
+        this.nameFont = '' + Math.round(this.canvasWidth / 15)
+      }
+      this.nameMargin = '' + Math.round(+this.nameFont / 4)
+    }
+
+    if (this.bottomLabel) {
+      if (!this.bottomLabelFont) {
+        this.bottomLabelFont = '' + Math.round(this.canvasWidth / 10)
+      }
+      this.bottomLabelMargin = '-' + this.bottomLabelFont
+    }
+
     if (this.optionsCheck()) {
       this.element = this.gaugeArea.nativeElement
       this.options.centralLabel = this.centralLabel
@@ -49,20 +70,25 @@ export class GaugeChartComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes) {
-    if (!changes.needleValue.firstChange) {
-      if (changes.needleValue &&
-      changes.needleValue.currentValue !== changes.needleValue.previousValue) {
+    if (changes.needleValue && !changes.needleValue.firstChange) {
+      if (changes.needleValue.currentValue !== changes.needleValue.previousValue) {
         this.needleValue = changes.needleValue.currentValue
         this.gaugeChart.updateNeedle(this.needleValue)
       }
-      if (changes.centralLabel &&
-      changes.centralLabel.currentValue !== changes.centralLabel.previousValue) {
+    }
+    if (changes.centralLabel && !changes.centralLabel.firstChange) {
+      if (changes.centralLabel.currentValue !== changes.centralLabel.previousValue) {
         this.gaugeChart.removeGauge()
         this.centralLabel = changes.centralLabel.currentValue
         this.options.centralLabel = this.centralLabel
         this.gaugeChart = GaugeChart
           .gaugeChart(this.element, this.canvasWidth, this.options)
         this.gaugeChart.updateNeedle(this.needleValue)
+      }
+    }
+    if (changes.centralLabel && !changes.centralLabel.firstChange) {
+      if (changes.bottomLabel.currentValue !== changes.bottomLabel.previousValue) {
+        console.log(changes.bottomLabel.currentValue)
       }
     }
   }
