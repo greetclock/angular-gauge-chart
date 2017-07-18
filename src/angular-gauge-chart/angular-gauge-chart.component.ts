@@ -9,8 +9,8 @@ import * as GaugeChart from 'gauge-chart'
  */
 @Component({
   selector: 'gauge-chart',
-  templateUrl: './gauge-chart.component.html',
-  styleUrls: [ './gauge-chart.component.scss' ],
+  templateUrl: './angular-gauge-chart.component.html',
+  styleUrls: [ './angular-gauge-chart.component.scss' ],
 })
 export class GaugeChartComponent implements OnInit, OnChanges {
   @ViewChild('gaugeArea') gaugeArea

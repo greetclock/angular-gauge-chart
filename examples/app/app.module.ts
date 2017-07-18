@@ -6,7 +6,7 @@ import { Component, NgModule } from '@angular/core';
  */
 import { ENV_PROVIDERS } from './environment';
 // App is our top level component
-import { GaugeChartComponent } from '../../src/gauge-chart/gauge-chart.component';
+import { GaugeChartComponent } from '../../src/angular-gauge-chart';
 import { AppComponent } from './app.component'
 
 /**
