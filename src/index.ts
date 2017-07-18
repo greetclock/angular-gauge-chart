@@ -1,5 +1,5 @@
 /**
  * App
  */
-export * from './angular-gauge-chart';
-export * from './angular-gauge-chart.module';
+export * from './gauge-chart';
+export * from './gauge-chart.module';
