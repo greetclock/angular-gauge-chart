@@ -11,10 +11,12 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app',
   template: `
     <gauge-chart
-     [canvasWidth]="canvasWidth"
-     [needleValue]="needleValue"
-     [centralLabel]="centralLabel"
-     [options]="options"></gauge-chart>
+      name="Heizen"
+      [bottomLabel]="bottomLabel"
+      [canvasWidth]="canvasWidth"
+      [needleValue]="needleValue"
+      [centralLabel]="centralLabel"
+      [options]="options"></gauge-chart>
   `
 })
 export class AppComponent implements OnInit {
@@ -22,11 +24,12 @@ export class AppComponent implements OnInit {
   public needleValue: number
   public centralLabel: string
   public options
+  public bottomLabel = '24.0'
 
   ngOnInit() {
-    this.canvasWidth = 500
+    this.canvasWidth = 300
     this.needleValue = 0
-    this.centralLabel = '' + this.needleValue
+    //this.centralLabel = '' + this.needleValue
     this.options = {
         hasNeedle: true,
         needleColor: 'gray',
@@ -36,9 +39,8 @@ export class AppComponent implements OnInit {
         rangeLabel: ['0', '100'],
       }
 
-    /*setInterval(() => {
-        this.needleValue += 10
-        this.centralLabel = '' + this.needleValue
-      }, 10000)*/
+    setInterval(() => {
+        this.bottomLabel = '' + (+this.bottomLabel + 10) + '.0'
+      }, 2000)
   }
 }
