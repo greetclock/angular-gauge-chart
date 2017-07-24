@@ -1,6 +1,6 @@
 {
   "name": "angular-gauge-chart",
-  "version": "0.3.3",
+  "version": "0.3.4-dev.1",
   "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
   "keywords": [
     "angular",
@@ -45,12 +45,11 @@
     "gauge-chart": "git+ssh://git@bitbucket.org:recogizer/gauge-chart.git"
   },
   "devDependencies": {
+    "@angular/compiler-cli": "~4.0.3",
     "@angular/platform-browser": "~4.0.3",
     "@angular/platform-browser-dynamic": "~4.0.3",
     "@angular/platform-server": "~4.0.3",
     "@angular/router": "~4.0.3",
-    "typedoc-webpack-plugin": "^1.1.4",
-    "@angular/compiler-cli": "~4.0.3",
     "@types/hammerjs": "^2.0.34",
     "@types/jasmine": "2.5.45",
     "@types/node": "^7.0.13",
@@ -92,8 +91,10 @@
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.16.1",
     "to-string-loader": "^1.1.5",
+    "tslib": "^1.7.1",
     "tslint": "~4.5.1",
     "typedoc": "^0.5.10",
+    "typedoc-webpack-plugin": "^1.1.4",
     "typescript": "~2.2.2",
     "webpack": "~2.4.1",
     "webpack-dev-middleware": "^1.10.1",
