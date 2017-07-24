@@ -9,34 +9,8 @@ import * as GaugeChart from 'gauge-chart'
  */
 @Component({
   selector: 'gauge-chart',
-  template: `
-    <div class="gauge-chart" [style.width.px]="canvasWidth">
-      <span
-        [style.font-size.px]="nameFont"
-        [style.margin-bottom.px]="nameMargin">
-        {{name}}
-      </span>
-      <div #gaugeArea></div>
-      <span
-        class="gauge-chart__label"
-        [style.font-size.px]="bottomLabelFont"
-        [style.margin-top.px]="bottomLabelMargin">
-        {{bottomLabel}}
-      </span>
-    </div>
-  `,
-  styles: [ 
-    `
-    * { font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-    .gauge-chart {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .gauge-chart__label { font-weight: bold; }
-  `],
+  templateUrl: './gauge-chart.component.html',
+  styleUrls: [ './gauge-chart.component.scss' ],
 })
 export class GaugeChartComponent implements OnInit, OnChanges {
   @ViewChild('gaugeArea') gaugeArea

@@ -9,7 +9,7 @@
     "sourceMap": true,
     "noEmit": true,
     "noEmitHelpers": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "strictNullChecks": false,
     "lib": [
       "dom",

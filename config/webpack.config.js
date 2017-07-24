@@ -32,7 +32,18 @@ module.exports = function () {
         use: ExtractTextPlugin.extract({
           use: 'css-loader',
         }),
-      }],
+      },
+        /* Raw loader support for *.html
+         * Returns file content as string
+         *
+         * See: https://github.com/webpack/raw-loader
+         */
+      {
+        test: /\.html$/,
+        use: 'raw-loader',
+        exclude: [helpers.root('src/index.html')]
+      },
+    ],
     },
     externals: {
       '@angular/core': '@angular/core',
