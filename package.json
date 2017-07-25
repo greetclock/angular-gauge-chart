@@ -30,27 +30,25 @@
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
   },
   "dependencies": {
-    "@angular/common": "~4.0.3",
-    "@angular/compiler": "~4.0.3",
     "@angular/core": "~4.0.3",
-    "@angular/forms": "~4.0.3",
-    "@angular/http": "~4.0.3",
-    "@angularclass/conventions-loader": "^1.0.13",
-    "core-js": "^2.4.1",
-    "gauge-chart": "git+ssh://git@bitbucket.org/recogizer/gauge-chart.git",
-    "rxjs": "5.0.2",
-    "zone.js": "~0.8.5"
+    "gauge-chart": "git+ssh://git@bitbucket.org/recogizer/gauge-chart.git"
   },
   "peerDependencies": {
     "@angular/core": "~4.0.3",
     "tslib": "^1.7.1"
   },
   "devDependencies": {
+    "@angular/animations": "^4.0.3",
+    "@angular/common": "~4.0.3",
+    "@angular/compiler": "~4.0.3",
     "@angular/compiler-cli": "~4.0.3",
+    "@angular/forms": "~4.0.3",
+    "@angular/http": "~4.0.3",
     "@angular/platform-browser": "~4.0.3",
     "@angular/platform-browser-dynamic": "~4.0.3",
     "@angular/platform-server": "~4.0.3",
     "@angular/router": "~4.0.3",
+    "@angularclass/conventions-loader": "^1.0.13",
     "@types/hammerjs": "^2.0.34",
     "@types/jasmine": "2.5.45",
     "@types/node": "^7.0.13",

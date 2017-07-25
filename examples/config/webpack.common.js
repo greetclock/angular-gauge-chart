@@ -31,8 +31,6 @@ const METADATA = {
   isDevServer: helpers.isWebpackDevServer(),
 };
 
-console.log('HERE', helpers.root('examples/index.html'))
-
 /**
  * Webpack configuration
  *
@@ -125,8 +123,7 @@ module.exports = function (options) {
             {
               loader: 'awesome-typescript-loader',
               options: {
-                configFileName: 'tsconfig.json',
-                useCache: !isProd
+                configFileName: './tsconfig.json',
               }
             },
             {
@@ -302,7 +299,7 @@ module.exports = function (options) {
 
       new ngcWebpack.NgcWebpackPlugin({
         disabled: !AOT,
-        tsConfig: helpers.root('tsconfig.json'),
+        tsConfig: helpers.root('../tsconfig.json'),
         resourceOverride: helpers.root('config/resource-override.js')
       }),
 
