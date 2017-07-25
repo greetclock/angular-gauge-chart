@@ -22,39 +22,45 @@ module.exports = function () {
     module: {
       rules: [{
         test: /\.ts$/,
-        loader: 'awesome-typescript-loader',
-        options: {
-          configFileName: 'tsconfig.json',
-        },
+        use: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              configFileName: './tsconfig.json',
+              transpileOnly: true,
+            },
+          },
+          'angular2-template-loader',
+        ],
         exclude: [/\.(spec|e2e)\.ts$/],
       }, {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           use: 'css-loader',
         }),
-      },
-        /* Raw loader support for *.html
-         * Returns file content as string
-         *
-         * See: https://github.com/webpack/raw-loader
-         */
-      {
+      }, {
         test: /\.html$/,
         use: 'raw-loader',
         exclude: [helpers.root('src/index.html')]
+      }, {
+        test: /\.css$/,
+        use: ['to-string-loader', 'css-loader'],
+      }, {
+        test: /\.scss$/,
+        use: ['to-string-loader', 'css-loader', 'sass-loader'],
       },
     ],
     },
     externals: {
       '@angular/core': '@angular/core',
       'gauge-chart': 'gauge-chart',
+      'tslib': 'tslib',
     },
     resolve: {
-      extensions: ['.ts', '.js', '.css'],
+      extensions: ['.ts', '.js', '.css', '.scss'],
     },
     plugins: [
-       new ExtractTextPlugin('styles.css'),
-       new CheckerPlugin(),
+       // new CheckerPlugin(),
        new TypedocWebpackPlugin({ }, path.resolve(__dirname, '../src')),
        new DefinePlugin({
          ENV: `'production'`,
