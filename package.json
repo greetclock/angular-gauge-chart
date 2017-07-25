@@ -30,20 +30,23 @@
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
   },
   "dependencies": {
-    "@angular/core": "^4.0.3",
-    "gauge-chart": "git+ssh://git@bitbucket.org:recogizer/gauge-chart.git"
+    "@angular/common": "~4.0.3",
+    "@angular/compiler": "~4.0.3",
+    "@angular/core": "~4.0.3",
+    "@angular/forms": "~4.0.3",
+    "@angular/http": "~4.0.3",
+    "@angularclass/conventions-loader": "^1.0.13",
+    "core-js": "^2.4.1",
+    "gauge-chart": "git+ssh://git@bitbucket.org/recogizer/gauge-chart.git",
+    "rxjs": "5.0.2",
+    "zone.js": "~0.8.5"
   },
   "peerDependencies": {
     "@angular/core": "~4.0.3",
     "tslib": "^1.7.1"
   },
   "devDependencies": {
-    "@angular/animations": "^4.0.3",
-    "@angular/common": "~4.0.3",
-    "@angular/compiler": "^4.0.3",
-    "@angular/compiler-cli": "^4.0.3",
-    "@angular/forms": "~4.0.3",
-    "@angular/http": "~4.0.3",
+    "@angular/compiler-cli": "~4.0.3",
     "@angular/platform-browser": "~4.0.3",
     "@angular/platform-browser-dynamic": "~4.0.3",
     "@angular/platform-server": "~4.0.3",
@@ -87,10 +90,10 @@
     "to-string-loader": "^1.1.5",
     "tslib": "^1.7.1",
     "tslint": "~4.5.1",
-    "typedoc": "^0.7.1",
+    "typedoc": "^0.5.10",
     "typedoc-webpack-plugin": "^1.1.4",
-    "typescript": "^2.4.2",
-    "webpack": "^2.4.1",
+    "typescript": "~2.2.2",
+    "webpack": "~2.4.1",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "~2.4.2",
     "webpack-dll-bundles-plugin": "^1.0.0-beta.5",
