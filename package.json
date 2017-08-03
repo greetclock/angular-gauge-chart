@@ -1,7 +1,7 @@
 {
   "name": "angular-gauge-chart",
-  "version": "0.3.4",
-  "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
+  "version": "0.4.0",
+  "description": "Angular Gauge Chart",
   "keywords": [
     "angular",
     "angular2",
@@ -9,9 +9,8 @@
     "typescript"
   ],
   "main": "dist/bundle.js",
-  "author": "Patrick Stapleton <patrick@angularclass.com>",
-  "homepage": "https://github.com/angularclass/angular2-webpack-starter",
-  "license": "MIT",
+  "author": "",
+  "license": "",
   "scripts": {
     "build": "npm run webpack -- --config config/webpack.config.js",
     "build:dev": "npm run clean:dist && npm run webpack -- --config examples/config/webpack.dev.js --progress --profile",
@@ -31,7 +30,7 @@
   },
   "dependencies": {
     "@angular/core": "~4.0.3",
-    "gauge-chart": "git+ssh://git@bitbucket.org/recogizer/gauge-chart.git"
+    "gauge-chart": "git+ssh://git@bitbucket.org/recogizer/gauge-chart.git#v0.4.0"
   },
   "peerDependencies": {
     "@angular/core": "~4.0.3",
@@ -97,13 +96,6 @@
     "webpack-dll-bundles-plugin": "^1.0.0-beta.5",
     "webpack-merge": "~4.1.0",
     "zone.js": "~0.8.5"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/angularclass/angular2-webpack-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
   },
   "engines": {
     "node": ">= 8.0.0",

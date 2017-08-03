@@ -11,8 +11,6 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app',
   template: `
     <gauge-chart
-      name="Heizen"
-      [bottomLabel]="bottomLabel"
       [canvasWidth]="canvasWidth"
       [needleValue]="needleValue"
       [centralLabel]="centralLabel"
@@ -37,6 +35,7 @@ export class AppComponent implements OnInit {
         arcColors: ['rgb(44, 151, 222)', 'lightgray'],
         arcDelimiters: [30],
         rangeLabel: ['0', '100'],
+        needleStartValue: 50,
       }
 
     setInterval(() => {
