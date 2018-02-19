@@ -79,6 +79,13 @@ options: { ... }
 | rangeLabel | array of two strings | depicts gauge ranges on both sides of the chart |
 | centralLabel | string | depicts gauge inner label |
 
+name?: string (will be shown above the gauge)
+
+nameFont?: number () (font size of the name)
+
+bottomLabel?: string (will be shown bellow the gauge)
+
+bottomLabelFont?: number (font size of the bottom label)
 
 ## Examples
 

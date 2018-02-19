@@ -14,7 +14,11 @@ import { Component, OnInit } from '@angular/core';
       [canvasWidth]="canvasWidth"
       [needleValue]="needleValue"
       [centralLabel]="centralLabel"
-      [options]="options"></gauge-chart>
+      [options]="options"
+      [name]="name"
+      [nameFont]="nameFont"
+      [bottomLabel]="bottomLabel"
+      [bottomLabelFont] = "bottomLabelFont"></gauge-chart>
   `
 })
 export class AppComponent implements OnInit {
@@ -22,7 +26,10 @@ export class AppComponent implements OnInit {
   public needleValue: number
   public centralLabel: string
   public options
+  public name = 'Gauge chart'
+  public nameFont = 24
   public bottomLabel = '24.0'
+  public bottomLabelFont = 24
 
   ngOnInit() {
     this.canvasWidth = 300
@@ -38,8 +45,8 @@ export class AppComponent implements OnInit {
         needleStartValue: 50,
       }
 
-    setInterval(() => {
+    /*setInterval(() => {
         this.bottomLabel = '' + (+this.bottomLabel + 10) + '.0'
-      }, 2000)
+      }, 2000)*/
   }
 }

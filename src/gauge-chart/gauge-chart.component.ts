@@ -19,10 +19,11 @@ export class GaugeChartComponent implements OnInit, OnChanges {
   @Input() needleValue: number
   @Input() centralLabel: string
   @Input() options
-  @Input() name: string
-  @Input() nameFont: string
-  @Input() bottomLabel: string
-  @Input() bottomLabelFont: string
+  @Input() wrapOptions?
+  @Input() name?: string
+  @Input() nameFont?: string
+  @Input() bottomLabel?: string
+  @Input() bottomLabelFont?: string
 
   public nameMargin: string
   public bottomLabelMargin: string
