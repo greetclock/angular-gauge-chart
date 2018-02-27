@@ -16,9 +16,7 @@ import { Component, OnInit } from '@angular/core';
       [centralLabel]="centralLabel"
       [options]="options"
       [name]="name"
-      [nameFont]="nameFont"
-      [bottomLabel]="bottomLabel"
-      [bottomLabelFont] = "bottomLabelFont"></gauge-chart>
+      [bottomLabel]="bottomLabel"></gauge-chart>
   `
 })
 export class AppComponent implements OnInit {
@@ -27,14 +25,14 @@ export class AppComponent implements OnInit {
   public centralLabel: string
   public options
   public name = 'Gauge chart'
-  public nameFont = 24
-  public bottomLabel = '24.0'
-  public bottomLabelFont = 24
+  // public nameFont = 30
+  public bottomLabel = '65'
+  // public bottomLabelFont = 28
 
   ngOnInit() {
-    this.canvasWidth = 300
-    this.needleValue = 0
-    //this.centralLabel = '' + this.needleValue
+    this.canvasWidth = 500
+    this.needleValue = 65
+    // this.centralLabel = '' + this.needleValue
     this.options = {
         hasNeedle: true,
         needleColor: 'gray',

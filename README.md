@@ -2,24 +2,29 @@
 
 This is an angular wrap-over for the library [gauge-chart](https://www.npmjs.com/package/gauge-chart)
 
-[![npm version](https://badge.fury.io/js/)](https://www.npmjs.com/package/angular-gauge-chart)
-
-**A library for creating nice and flexible gauge charts.**
+**A library for creating nice and flexible gauge charts with Angular.**
 
 You can [catch us on twitter](https://twitter.com/recogizer): [@recogizer](https://twitter.com/recogizer) or head over to [our company's website](http://www.recogizer.com/).
 
-## [Demo]() | [Documentation]()
+## [Demo](https://recogizer.github.io/gauge-chart/examples/samples/)
 
 ## Installation
 
-In order to work with `angular-gauge-chart`, you have to install `gauge-chart` libarary first:
-
 ```
-  npm install gauge-chart
-  npm install angular-gauge-chart 
+  npm install @recogizer/angular-gauge-chart 
 ```
 
 ## Usage
+
+Import `angular-gauge-chart` into your module and add as a declaration.
+
+```typescript
+import { GaugeChartComponent } from 'angular-gauge-chart'
+
+declarations: [
+    GaugeChartComponent,
+]
+```
 
 Create an element for positioning gauge in your html file:
 
@@ -28,7 +33,9 @@ Create an element for positioning gauge in your html file:
     [canvasWidth]="canvasWidth"
     [needleValue]="needleValue"
     [centralLabel]="centralLabel"
-    [options]="options"></gauge-chart>
+    [options]="options"
+    [name]="name"
+    [bottomLabel]="bottomLabel"></gauge-chart>
 ```
 
 Now you're ready to draw your own gauge.
@@ -36,9 +43,11 @@ Now you're ready to draw your own gauge.
 Just copy to your ts file the following code:
 
 ```typescript
-public canvasWidth = 300
-public needleValue = 0
+public canvasWidth = 500
+public needleValue = 65
 public centralLabel = ''
+public name = 'Gauge chart'
+public bottomLabel = '65'
 public options = {
     hasNeedle: true,
     needleColor: 'gray',
@@ -50,12 +59,9 @@ public options = {
 }
 ```
 
-
 #### Result:
 
-![Gauge Example](/examples/img/gauge1.png "Gauge Example")
-
-By default, the needle is pointing to 0, thus in order to move it you have to use `.updateNeedle(val)`, where `val` denotes the value on the chart.
+![Gauge Example](/examples/img/gauge.png "Gauge Example")
 
 Feel free to change or delete any of the gaugeOptions properties as long as their values are in permitted ranges.
 
@@ -67,7 +73,7 @@ needleValue: number
 
 centralLabel: string
 
-options: { ... }
+options = { ... } :
 
 | Name | Values Ranges | Description |
 | ---- | ------------- | ----------- |
@@ -81,7 +87,7 @@ options: { ... }
 
 name?: string (will be shown above the gauge)
 
-nameFont?: number () (font size of the name)
+nameFont?: number (font size of the name)
 
 bottomLabel?: string (will be shown bellow the gauge)
 
@@ -91,7 +97,7 @@ bottomLabelFont?: number (font size of the bottom label)
 
 Some examples of what you can get out of the library using different properties:
 
-![Gauge Examples](/examples/img/gauge2.png "Gauge Examples")
+![Gauge Examples](/examples/img/gauges.png "Gauge Examples")
 
 ## Contributing
 Build the library with `npm run build`. This will fetch all dependencies and then compile the `dist` files. To see the examples locally you can start a web server with `npm start` and go to `localhost:3000`.
@@ -100,4 +106,4 @@ Build the library with `npm run build`. This will fetch all dependencies and the
 MIT License. Copyright (c) 2017-2018 RECOGIZER GROUP GmbH.
 
 ## Authors
-Alexey Karpov, Maxim Maltsev.
+[Alexey Karpov](htps://github.com/cherurg), [Maxim Maltsev](htps://github.com/mmaltsev).
