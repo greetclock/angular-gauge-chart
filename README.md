@@ -61,7 +61,7 @@ public options = {
 
 #### Result:
 
-![Gauge Example](/examples/img/gauge.png "Gauge Example")
+![Gauge Example](/examples/img/gauge.png "Gauge Example" =250x)
 
 Feel free to change or delete any of the gaugeOptions properties as long as their values are in permitted ranges.
 
