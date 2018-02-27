@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
   // public bottomLabelFont = 28
 
   ngOnInit() {
-    this.canvasWidth = 500
+    this.canvasWidth = 300
     this.needleValue = 65
     // this.centralLabel = '' + this.needleValue
     this.options = {
