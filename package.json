@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@angular/core": "~4.0.3",
-    "gauge-chart": "git+ssh://git@bitbucket.org/recogizer/gauge-chart.git#v0.4.0"
+    "@recogizer/gauge-chart": "^0.4.3"
   },
   "peerDependencies": {
     "@angular/core": "~4.0.3",
