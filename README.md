@@ -1,6 +1,6 @@
 # Angular Gauge Chart
 
-This is an angular wrap-over for the library [gauge-chart](https://www.npmjs.com/package/gauge-chart)
+This is an angular wrap-over for the library [gauge-chart](https://github.com/recogizer/gauge-chart)
 
 **A library for creating nice and flexible gauge charts with Angular.**
 
@@ -11,7 +11,7 @@ You can [catch us on twitter](https://twitter.com/recogizer): [@recogizer](https
 ## Installation
 
 ```
-  npm install @recogizer/angular-gauge-chart 
+  npm install @recogizer/angular-gauge-chart
 ```
 
 ## Usage

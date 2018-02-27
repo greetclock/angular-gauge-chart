@@ -1,5 +1,5 @@
 {
-  "name": "angular-gauge-chart",
+  "name": "@recogizer/angular-gauge-chart",
   "version": "0.4.1",
   "description": "Angular Gauge Chart",
   "keywords": [
@@ -9,8 +9,8 @@
     "typescript"
   ],
   "main": "dist/bundle.js",
-  "author": "",
-  "license": "",
+  "author": "“Maxim Maltsev” <“maltsevmn@ya.ru”>, “Alexey Karpov” <“karpovad@yandex.ru”>",
+  "license": "MIT",
   "scripts": {
     "build": "npm run webpack -- --config config/webpack.config.js",
     "build:dev": "npm run clean:dist && npm run webpack -- --config examples/config/webpack.dev.js --progress --profile",
@@ -100,5 +100,16 @@
   "engines": {
     "node": ">= 8.0.0",
     "npm": ">= 5"
-  }
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/recogizer/angular-gauge-chart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/recogizer/angular-gauge-chart/issues"
+  },
+  "homepage": "https://github.com/recogizer/angular-gauge-chart#readme"
 }
