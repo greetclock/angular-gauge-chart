@@ -43,7 +43,7 @@ Now you're ready to draw your own gauge.
 Just copy to your ts file the following code:
 
 ```typescript
-public canvasWidth = 500
+public canvasWidth = 300
 public needleValue = 65
 public centralLabel = ''
 public name = 'Gauge chart'
