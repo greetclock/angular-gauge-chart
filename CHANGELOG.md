@@ -1,3 +1,6 @@
+## 0.4.2
+* Fixed vulnerability bug and docs generated.
+
 ## 0.4.1
 * Updated gauge-chart import, examples, README.
 
