@@ -6,7 +6,7 @@ This is an angular wrap-over for the library [gauge-chart](https://github.com/re
 
 You can [catch us on twitter](https://twitter.com/recogizer): [@recogizer](https://twitter.com/recogizer) or head over to [our company's website](http://www.recogizer.com/).
 
-## [Demo](https://recogizer.github.io/gauge-chart/examples/samples/)
+## [Demo](https://recogizer.github.io/gauge-chart/examples/samples/) | [Docs](https://recogizer.github.io/angular-gauge-chart/docs)
 
 ## Installation
 
