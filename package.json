@@ -23,7 +23,7 @@
     "start": "npm run server:dev",
     "test": "npm run lint && karma start",
     "tslint": "tslint",
-    "typedoc": "typedoc",
+    "typedoc": "typedoc --out docs/",
     "watch": "npm run watch:dev",
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
@@ -87,7 +87,7 @@
     "to-string-loader": "^1.1.5",
     "tslib": "^1.7.1",
     "tslint": "~4.5.1",
-    "typedoc": "^0.5.10",
+    "typedoc": "^0.10.0",
     "typedoc-webpack-plugin": "^1.1.4",
     "typescript": "~2.2.2",
     "webpack": "~2.4.1",
