@@ -53,7 +53,6 @@ module.exports = function () {
     },
     externals: {
       '@angular/core': '@angular/core',
-      'gauge-chart': 'gauge-chart',
       'tslib': 'tslib',
     },
     resolve: {
