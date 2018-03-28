@@ -1,3 +1,6 @@
+## 0.4.3
+* Fixed bug with gauge-chart importing by deleting outdated code and updated the build.
+
 ## 0.4.2
 * Fixed vulnerability bug and docs generated.
 
