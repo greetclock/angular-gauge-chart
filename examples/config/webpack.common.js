@@ -12,7 +12,6 @@ const helpers = require('./helpers')
  */
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin')
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
-const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin
 const HtmlElementsPlugin = require('./html-elements-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -199,37 +198,6 @@ module.exports = function(options) {
        * See: https://github.com/s-panferov/awesome-typescript-loader#forkchecker-boolean-defaultfalse
        */
       new CheckerPlugin(),
-      /**
-       * Plugin: CommonsChunkPlugin
-       * Description: Shares common code between the pages.
-       * It identifies common modules and put them into a commons chunk.
-       *
-       * See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
-       * See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
-       */
-      new CommonsChunkPlugin({
-        name: 'polyfills',
-        chunks: ['polyfills'],
-      }),
-      /**
-       * This enables tree shaking of the vendor modules
-       */
-      new CommonsChunkPlugin({
-        name: 'vendor',
-        chunks: ['main'],
-        minChunks: module => /node_modules/.test(module.resource),
-      }),
-      /**
-       * Specify the correct order the scripts will be injected in
-       */
-      new CommonsChunkPlugin({
-        name: ['polyfills', 'vendor'].reverse(),
-      }),
-      new CommonsChunkPlugin({
-        name: ['manifest'],
-        minChunks: Infinity,
-      }),
-
       /**
        * Plugin: HtmlWebpackPlugin
        * Description: Simplifies creation of HTML files to serve your webpack bundles.
