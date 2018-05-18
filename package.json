@@ -2,35 +2,38 @@
   "name": "angular-gauge-chart",
   "version": "0.4.0",
   "description": "Angular Gauge Chart",
-  "keywords": [
-    "angular",
-    "angular2",
-    "webpack",
-    "typescript"
-  ],
+  "keywords": ["angular", "angular2", "webpack", "typescript"],
   "main": "dist/bundle.js",
   "author": "",
   "license": "",
   "scripts": {
     "build": "npm run webpack -- --config config/webpack.config.js",
-    "build:dev": "npm run clean:dist && npm run webpack -- --config examples/config/webpack.dev.js --progress --profile",
+    "build:dev":
+      "npm run clean:dist && npm run webpack -- --config examples/config/webpack.dev.js --progress --profile",
     "clean:dist": "npm run rimraf -- dist",
-    "clean": "npm cache clean && npm run rimraf -- node_modules doc coverage dist compiled dll",
-    "docs": "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
+    "clean":
+      "npm cache clean && npm run rimraf -- node_modules doc coverage dist compiled dll",
+    "docs":
+      "npm run typedoc -- --options typedoc.json --exclude '**/*.spec.ts' ./src/",
     "lint": "npm run tslint \"src/**/*.ts\"",
     "rimraf": "rimraf",
-    "server:dev": "npm run webpack-dev-server -- --config examples/config/webpack.dev.js --open --progress --profile --watch --content-base examples/",
+    "server:dev":
+      "npm run webpack-dev-server -- --config examples/config/webpack.dev.js --open --progress --profile --watch --content-base examples/",
     "start": "npm run server:dev",
     "test": "npm run lint && karma start",
     "tslint": "tslint",
     "typedoc": "typedoc",
     "watch": "npm run watch:dev",
-    "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
+    "webpack-dev-server":
+      "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "webpack":
+      "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "@angular/core": "~4.0.3",
-    "gauge-chart": "git+ssh://git@bitbucket.org/recogizer/gauge-chart.git#v0.4.0"
+    "gauge-chart":
+      "git+ssh://git@bitbucket.org/recogizer/gauge-chart.git#v0.4.0"
   },
   "peerDependencies": {
     "@angular/core": "~4.0.3",
@@ -63,6 +66,7 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.1",
     "html-webpack-plugin": "^2.28.0",
+    "husky": "^0.14.3",
     "inline-manifest-webpack-plugin": "^3.0.1",
     "istanbul-instrumenter-loader": "2.0.0",
     "jasmine-core": "^2.5.2",
@@ -75,9 +79,11 @@
     "karma-remap-coverage": "^0.1.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "~2.0.3",
+    "lint-staged": "^7.1.0",
     "ng-router-loader": "^2.1.0",
     "ngc-webpack": "~2.0.0",
     "node-sass": "^4.5.2",
+    "prettier": "^1.12.1",
     "protractor": "^5.1.1",
     "raw-loader": "0.5.1",
     "rimraf": "~2.6.1",
@@ -100,5 +106,13 @@
   "engines": {
     "node": ">= 8.0.0",
     "npm": ">= 5"
+  },
+  "lint-staged": {
+    "*.{js,json,css}": ["prettier --write", "git add"],
+    "*.ts": [
+      "prettier --write",
+      "tslint --fix -c ./tslint.json 'src/**/*.ts'",
+      "git add"
+    ]
   }
 }

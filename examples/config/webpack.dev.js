@@ -2,42 +2,40 @@
  * @author: @AngularClass
  */
 
-const helpers = require('./helpers');
-const webpackMerge = require('webpack-merge'); // used to merge webpack configs
-const webpackMergeDll = webpackMerge.strategy({plugins: 'replace'});
-const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
+const helpers = require('./helpers')
+const webpackMerge = require('webpack-merge') // used to merge webpack configs
+const webpackMergeDll = webpackMerge.strategy({ plugins: 'replace' })
+const commonConfig = require('./webpack.common.js') // the settings that are common to prod and dev
 
 /**
  * Webpack Plugins
  */
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
-const DefinePlugin = require('webpack/lib/DefinePlugin');
-const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
+const DefinePlugin = require('webpack/lib/DefinePlugin')
+const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin')
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin')
 
 /**
  * Webpack Constants
  */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
-const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 3000;
-const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
+const ENV = (process.env.ENV = process.env.NODE_ENV = 'development')
+const HOST = process.env.HOST || 'localhost'
+const PORT = process.env.PORT || 3000
+const METADATA = webpackMerge(commonConfig({ env: ENV }).metadata, {
   host: HOST,
   port: PORT,
   ENV: ENV,
-});
+})
 
-
-const DllBundlesPlugin = require('webpack-dll-bundles-plugin').DllBundlesPlugin;
+const DllBundlesPlugin = require('webpack-dll-bundles-plugin').DllBundlesPlugin
 
 /**
  * Webpack configuration
  *
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
-module.exports = function (options) {
-  return webpackMerge(commonConfig({env: ENV}), {
-
+module.exports = function(options) {
+  return webpackMerge(commonConfig({ env: ENV }), {
     /**
      * Developer tool to enhance debugging
      *
@@ -52,7 +50,6 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#output
      */
     output: {
-
       /**
        * The output directory as absolute path (required).
        *
@@ -88,7 +85,6 @@ module.exports = function (options) {
     },
 
     plugins: [
-
       /**
        * Plugin: DefinePlugin
        * Description: Define free variables.
@@ -101,11 +97,11 @@ module.exports = function (options) {
        * NOTE: when adding more properties, make sure you include them in custom-typings.d.ts
        */
       new DefinePlugin({
-        'ENV': JSON.stringify(METADATA.ENV),
+        ENV: JSON.stringify(METADATA.ENV),
         'process.env': {
-          'ENV': JSON.stringify(METADATA.ENV),
-          'NODE_ENV': JSON.stringify(METADATA.ENV),
-        }
+          ENV: JSON.stringify(METADATA.ENV),
+          NODE_ENV: JSON.stringify(METADATA.ENV),
+        },
       }),
 
       new DllBundlesPlugin({
@@ -114,11 +110,11 @@ module.exports = function (options) {
             'core-js',
             {
               name: 'zone.js',
-              path: 'zone.js/dist/zone.js'
+              path: 'zone.js/dist/zone.js',
             },
             {
               name: 'zone.js',
-              path: 'zone.js/dist/long-stack-trace-zone.js'
+              path: 'zone.js/dist/long-stack-trace-zone.js',
             },
           ],
           vendor: [
@@ -130,13 +126,13 @@ module.exports = function (options) {
             '@angular/http',
             '@angular/router',
             'rxjs',
-          ]
+          ],
         },
         dllDir: helpers.root('dll'),
-        webpackConfig: webpackMergeDll(commonConfig({env: ENV}), {
+        webpackConfig: webpackMergeDll(commonConfig({ env: ENV }), {
           devtool: 'cheap-module-source-map',
-          plugins: []
-        })
+          plugins: [],
+        }),
       }),
 
       /**
@@ -148,8 +144,16 @@ module.exports = function (options) {
        * See: https://github.com/SimenB/add-asset-html-webpack-plugin
        */
       new AddAssetHtmlPlugin([
-        { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('polyfills')}`) },
-        { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('vendor')}`) }
+        {
+          filepath: helpers.root(
+            `dll/${DllBundlesPlugin.resolveFile('polyfills')}`,
+          ),
+        },
+        {
+          filepath: helpers.root(
+            `dll/${DllBundlesPlugin.resolveFile('vendor')}`,
+          ),
+        },
       ]),
 
       /**
@@ -167,11 +171,8 @@ module.exports = function (options) {
        */
       new LoaderOptionsPlugin({
         debug: true,
-        options: {
-
-        }
+        options: {},
       }),
-
     ],
 
     /**
@@ -188,8 +189,8 @@ module.exports = function (options) {
       historyApiFallback: true,
       watchOptions: {
         aggregateTimeout: 300,
-        poll: 1000
-      }
+        poll: 1000,
+      },
     },
 
     /**
@@ -204,8 +205,7 @@ module.exports = function (options) {
       process: true,
       module: false,
       clearImmediate: false,
-      setImmediate: false
-    }
-
-  });
+      setImmediate: false,
+    },
+  })
 }

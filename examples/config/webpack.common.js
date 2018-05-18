@@ -2,44 +2,43 @@
  * @author: @AngularClass
  */
 
-const webpack = require('webpack');
-const helpers = require('./helpers');
+const webpack = require('webpack')
+const helpers = require('./helpers')
 
 /**
  * Webpack Plugins
  *
  * problem with copy-webpack-plugin
  */
-const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
-const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
-const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
-const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
-const HtmlElementsPlugin = require('./html-elements-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
-const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const ngcWebpack = require('ngc-webpack');
+const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin')
+const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin')
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin')
+const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin
+const HtmlElementsPlugin = require('./html-elements-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+const ngcWebpack = require('ngc-webpack')
 
 /**
  * Webpack Constants
  */
-const AOT = process.env.BUILD_AOT || helpers.hasNpmFlag('aot');
+const AOT = process.env.BUILD_AOT || helpers.hasNpmFlag('aot')
 const METADATA = {
   title: 'Angular Gauge Chart',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer(),
-};
+}
 
 /**
  * Webpack configuration
  *
  * See: http://webpack.github.io/docs/configuration.html#cli
  */
-module.exports = function (options) {
-  isProd = options.env === 'production';
+module.exports = function(options) {
+  isProd = options.env === 'production'
   return {
-
     /**
      * Cache generated modules and chunks to improve performance for multiple incremental builds.
      * This is enabled by default in watch mode.
@@ -56,11 +55,10 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#entry
      */
     entry: {
-
-      'polyfills': './examples/polyfills.browser.ts',
-      'main':      AOT ? './examples/main.browser.aot.ts' :
-                  './examples/main.browser.ts'
-
+      polyfills: './examples/polyfills.browser.ts',
+      main: AOT
+        ? './examples/main.browser.aot.ts'
+        : './examples/main.browser.ts',
     },
 
     /**
@@ -69,7 +67,6 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#resolve
      */
     resolve: {
-
       /**
        * An array of extensions that should be used to resolve modules.
        *
@@ -81,7 +78,6 @@ module.exports = function (options) {
        * An array of directory names to be resolved to the current directory
        */
       modules: [helpers.root('src'), helpers.root('../node_modules')],
-
     },
 
     /**
@@ -90,9 +86,7 @@ module.exports = function (options) {
      * See: http://webpack.github.io/docs/configuration.html#module
      */
     module: {
-
       rules: [
-
         /**
          * Typescript loader support for .ts
          *
@@ -117,20 +111,20 @@ module.exports = function (options) {
               options: {
                 loader: 'async-import',
                 genDir: 'compiled',
-                aot: AOT
-              }
+                aot: AOT,
+              },
             },
             {
               loader: 'awesome-typescript-loader',
               options: {
                 configFileName: './tsconfig.json',
-              }
+              },
             },
             {
-              loader: 'angular2-template-loader'
-            }
+              loader: 'angular2-template-loader',
+            },
           ],
-          exclude: [/\.(spec|e2e)\.ts$/]
+          exclude: [/\.(spec|e2e)\.ts$/],
         },
 
         /**
@@ -140,7 +134,7 @@ module.exports = function (options) {
          */
         {
           test: /\.json$/,
-          use: 'json-loader'
+          use: 'json-loader',
         },
 
         /**
@@ -172,7 +166,7 @@ module.exports = function (options) {
         {
           test: /\.html$/,
           use: 'raw-loader',
-          exclude: [helpers.root('index.html')]
+          exclude: [helpers.root('index.html')],
         },
 
         /**
@@ -180,18 +174,16 @@ module.exports = function (options) {
          */
         {
           test: /\.(jpg|png|gif)$/,
-          use: 'file-loader'
+          use: 'file-loader',
         },
 
         /* File loader for supporting fonts, for example, in CSS files.
         */
         {
           test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
-          use: 'file-loader'
-        }
-
+          use: 'file-loader',
+        },
       ],
-
     },
 
     /**
@@ -217,7 +209,7 @@ module.exports = function (options) {
        */
       new CommonsChunkPlugin({
         name: 'polyfills',
-        chunks: ['polyfills']
+        chunks: ['polyfills'],
       }),
       /**
        * This enables tree shaking of the vendor modules
@@ -225,13 +217,13 @@ module.exports = function (options) {
       new CommonsChunkPlugin({
         name: 'vendor',
         chunks: ['main'],
-        minChunks: module => /node_modules/.test(module.resource)
+        minChunks: module => /node_modules/.test(module.resource),
       }),
       /**
        * Specify the correct order the scripts will be injected in
        */
       new CommonsChunkPlugin({
-        name: ['polyfills', 'vendor'].reverse()
+        name: ['polyfills', 'vendor'].reverse(),
       }),
       new CommonsChunkPlugin({
         name: ['manifest'],
@@ -251,7 +243,7 @@ module.exports = function (options) {
         title: METADATA.title,
         chunksSortMode: 'dependency',
         metadata: METADATA,
-        inject: 'head'
+        inject: 'head',
       }),
 
       /**
@@ -262,7 +254,7 @@ module.exports = function (options) {
        * See: https://github.com/numical/script-ext-html-webpack-plugin
        */
       new ScriptExtHtmlWebpackPlugin({
-        defaultAttribute: 'defer'
+        defaultAttribute: 'defer',
       }),
 
       /**
@@ -272,35 +264,34 @@ module.exports = function (options) {
        */
       new LoaderOptionsPlugin({}),
 
-
       /**
        * Fix Angular 2
        */
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)async/,
-        helpers.root('node_modules/@angular/core/src/facade/async.js')
+        helpers.root('node_modules/@angular/core/src/facade/async.js'),
       ),
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)collection/,
-        helpers.root('node_modules/@angular/core/src/facade/collection.js')
+        helpers.root('node_modules/@angular/core/src/facade/collection.js'),
       ),
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)errors/,
-        helpers.root('node_modules/@angular/core/src/facade/errors.js')
+        helpers.root('node_modules/@angular/core/src/facade/errors.js'),
       ),
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)lang/,
-        helpers.root('node_modules/@angular/core/src/facade/lang.js')
+        helpers.root('node_modules/@angular/core/src/facade/lang.js'),
       ),
       new NormalModuleReplacementPlugin(
         /facade(\\|\/)math/,
-        helpers.root('node_modules/@angular/core/src/facade/math.js')
+        helpers.root('node_modules/@angular/core/src/facade/math.js'),
       ),
 
       new ngcWebpack.NgcWebpackPlugin({
         disabled: !AOT,
         tsConfig: helpers.root('../tsconfig.json'),
-        resourceOverride: helpers.root('config/resource-override.js')
+        resourceOverride: helpers.root('config/resource-override.js'),
       }),
 
       /**
@@ -324,8 +315,7 @@ module.exports = function (options) {
       process: true,
       module: false,
       clearImmediate: false,
-      setImmediate: false
-    }
-
-  };
+      setImmediate: false,
+    },
+  }
 }

@@ -1,20 +1,18 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core'
 
 /*
  * Platform and Environment providers/directives/pipes
  */
-//import { ENV_PROVIDERS } from './environment';
+// import { ENV_PROVIDERS } from './environment';
 // App is our top level component
-import { GaugeChartComponent } from './gauge-chart';
+import { GaugeChartComponent } from './gauge-chart'
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [ GaugeChartComponent ],
-  declarations: [
-    GaugeChartComponent,
-  ],
+  bootstrap: [GaugeChartComponent],
+  declarations: [GaugeChartComponent],
   /**
    * Import Angular's modules.
    */
@@ -28,5 +26,4 @@ import { GaugeChartComponent } from './gauge-chart';
     ENV_PROVIDERS,
   ]*/
 })
-
 export class GaugeChartModule {}
