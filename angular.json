@@ -121,6 +121,86 @@
           }
         }
       }
+    },
+    "angular-gauge-chart": {
+      "root": "projects/angular-gauge-chart",
+      "sourceRoot": "projects/angular-gauge-chart/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular-gauge-chart/tsconfig.lib.json",
+            "project": "projects/angular-gauge-chart/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/angular-gauge-chart/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-gauge-chart/src/test.ts",
+            "tsConfig": "projects/angular-gauge-chart/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-gauge-chart/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-gauge-chart/tsconfig.lib.json",
+              "projects/angular-gauge-chart/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "gauge-chart": {
+      "root": "projects/gauge-chart",
+      "sourceRoot": "projects/gauge-chart/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/gauge-chart/tsconfig.lib.json",
+            "project": "projects/gauge-chart/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/gauge-chart/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/gauge-chart/src/test.ts",
+            "tsConfig": "projects/gauge-chart/tsconfig.spec.json",
+            "karmaConfig": "projects/gauge-chart/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/gauge-chart/tsconfig.lib.json",
+              "projects/gauge-chart/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "test-proj"

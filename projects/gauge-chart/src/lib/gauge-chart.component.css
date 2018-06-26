@@ -1,0 +1,13 @@
+* {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.gauge-chart {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.gauge-chart__label {
+  font-weight: bold;
+}
