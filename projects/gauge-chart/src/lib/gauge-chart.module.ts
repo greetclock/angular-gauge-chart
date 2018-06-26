@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { GaugeChartComponent } from './gauge-chart.component';
+import { NgModule } from '@angular/core'
+import { GaugeChartComponent } from './gauge-chart.component'
 
 @NgModule({
-  imports: [
-  ],
+  imports: [],
   declarations: [GaugeChartComponent],
-  exports: [GaugeChartComponent]
+  exports: [GaugeChartComponent],
 })
-export class GaugeChartModule { }
+export class GaugeChartModule {}
