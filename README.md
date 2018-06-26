@@ -61,7 +61,7 @@ public options = {
 
 #### Result:
 
-![Gauge Example](/examples/img/gauge.png "Gauge Example")
+![Gauge Example](/img/gauge.png "Gauge Example")
 
 Feel free to change or delete any of the gaugeOptions properties as long as their values are in permitted ranges.
 
@@ -97,7 +97,7 @@ bottomLabelFont?: number (font size of the bottom label)
 
 Some examples of what you can get out of the library using different properties:
 
-![Gauge Examples](/examples/img/gauges.png "Gauge Examples")
+![Gauge Examples](/img/gauges.png "Gauge Examples")
 
 ## Contributing
 Build the library with `npm run build`. This will fetch all dependencies and then compile the `dist` files. To see the examples locally you can start a web server with `npm start` and go to `localhost:3000`.
