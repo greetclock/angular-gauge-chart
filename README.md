@@ -110,4 +110,4 @@ MIT License. Copyright (c) 2017-2018 RECOGIZER GROUP GmbH.
 The project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Authors
-[Alexey Karpov](htps://github.com/cherurg), [Maxim Maltsev](htps://github.com/mmaltsev).
+[Alexey Karpov](https://github.com/cherurg) , [Maxim Maltsev](https://github.com/mmaltsev).
