@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import * as GC from 'angular-gauge-chart'
 import { AppComponent } from './app.component'
+import { GaugeChartComponent } from 'angular-gauge-chart'
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, GaugeChartModule],
+  declarations: [AppComponent, GaugeChartComponent],
+  imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent],
 })
