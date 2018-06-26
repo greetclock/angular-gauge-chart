@@ -105,5 +105,7 @@ Build the library with `npm run build`. This will fetch all dependencies and the
 ## License
 MIT License. Copyright (c) 2017-2018 RECOGIZER GROUP GmbH.
 
+[Angular Starter](https://github.com/gdi2290/angular-starter) was used.
+
 ## Authors
 [Alexey Karpov](htps://github.com/cherurg), [Maxim Maltsev](htps://github.com/mmaltsev).
