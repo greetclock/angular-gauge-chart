@@ -29,13 +29,13 @@ declarations: [
 Create an element for positioning gauge in your html file:
 
 ```html
-<gauge-chart
+<rg-gauge-chart
     [canvasWidth]="canvasWidth"
     [needleValue]="needleValue"
     [centralLabel]="centralLabel"
     [options]="options"
     [name]="name"
-    [bottomLabel]="bottomLabel"></gauge-chart>
+    [bottomLabel]="bottomLabel"></rg-gauge-chart>
 ```
 
 Now you're ready to draw your own gauge.
