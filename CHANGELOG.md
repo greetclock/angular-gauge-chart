@@ -1,3 +1,6 @@
+## 0.5.1
+* Fixed vulnerability bug.
+
 ## 0.5.0
 **Breaking Changes**:
 * The component was renamed: `<gauge-chart/>` -> `<rg-gauge-chart>`.
