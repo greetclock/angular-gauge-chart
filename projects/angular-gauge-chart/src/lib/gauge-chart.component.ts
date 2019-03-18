@@ -98,7 +98,7 @@ export class GaugeChartComponent implements OnInit, OnChanges {
         this.gaugeChart.updateNeedle(this.needleValue)
       }
     }
-    if (changes.centralLabel && !changes.centralLabel.firstChange) {
+    if (changes.bottomLabel && !changes.bottomLabel.firstChange) {
       if (
         changes.bottomLabel.currentValue !== changes.bottomLabel.previousValue
       ) {
