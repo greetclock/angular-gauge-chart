@@ -13,7 +13,8 @@ import { Component, OnInit } from '@angular/core'
       [centralLabel]="centralLabel"
       [options]="options"
       [name]="name"
-      [bottomLabel]="bottomLabel"></rg-gauge-chart>
+      [bottomLabel]="bottomLabel"
+    ></rg-gauge-chart>
   `,
 })
 export class AppComponent implements OnInit {
