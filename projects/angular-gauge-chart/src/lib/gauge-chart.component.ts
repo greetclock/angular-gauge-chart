@@ -1,8 +1,8 @@
 /**
  * Angular 2 decorators and services
  */
-import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
-import * as GaugeChart from 'gauge-chart';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core'
+import * as GaugeChart from 'gauge-chart'
 
 /**
  * GaugeChart Component
