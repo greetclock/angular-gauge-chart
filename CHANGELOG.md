@@ -1,3 +1,7 @@
+## 0.5.2
+
+* Fixed a bug described in [#14](https://github.com/recogizer/angular-gauge-chart/issues/14) thanks to [@csprea](https://github.com/csprea).
+
 ## 0.5.1
 * Fixed vulnerability bug.
 
