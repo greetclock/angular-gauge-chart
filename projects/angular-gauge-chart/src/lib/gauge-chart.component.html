@@ -1,0 +1,14 @@
+<div class="gauge-chart" [style.width.px]="canvasWidth">
+  <span
+    [style.font-size.px]="nameFont"
+    [style.margin-bottom.px]="nameMargin">
+    {{name}}
+  </span>
+  <div #gaugeArea></div>
+  <span
+    class="gauge-chart__label"
+    [style.font-size.px]="bottomLabelFont"
+    [style.margin-top.px]="bottomLabelMargin">
+    {{bottomLabel}}
+  </span>
+</div>
