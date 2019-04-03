@@ -1,7 +1,14 @@
 /**
  * Angular 2 decorators and services
  */
-import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core'
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  ViewChild,
+  DoCheck,
+} from '@angular/core'
 import * as GaugeChart from 'gauge-chart'
 
 /**
@@ -12,7 +19,7 @@ import * as GaugeChart from 'gauge-chart'
   templateUrl: './gauge-chart.component.html',
   styleUrls: ['./gauge-chart.component.css'],
 })
-export class GaugeChartComponent implements OnInit, OnChanges {
+export class GaugeChartComponent implements OnInit, OnChanges, DoCheck {
   @ViewChild('gaugeArea') gaugeArea
 
   @Input() canvasWidth: number
@@ -30,6 +37,7 @@ export class GaugeChartComponent implements OnInit, OnChanges {
 
   private element
   private gaugeChart: any
+  private oldOptions
 
   ngOnInit() {
     // calculate styles for name and bottomLabel
@@ -49,15 +57,9 @@ export class GaugeChartComponent implements OnInit, OnChanges {
 
     if (this.optionsCheck()) {
       this.element = this.gaugeArea.nativeElement
-      this.options.centralLabel = this.centralLabel
-      // Drawing and updating the chart
-      this.gaugeChart = GaugeChart.gaugeChart(
-        this.element,
-        this.canvasWidth,
-        this.options,
-      )
-      this.gaugeChart.updateNeedle(this.needleValue)
+      this.drawChart()
     }
+    this.oldOptions = JSON.parse(JSON.stringify(this.options))
   }
 
   optionsCheck() {
@@ -74,36 +76,38 @@ export class GaugeChartComponent implements OnInit, OnChanges {
     return true
   }
 
+  ngDoCheck() {
+    if (!this.areEqual(this.options, this.oldOptions)) {
+      this.drawChart(true)
+      this.oldOptions = JSON.parse(JSON.stringify(this.options))
+    }
+  }
+
+  areEqual(obj1, obj2) {
+    return JSON.stringify(obj1) === JSON.stringify(obj2)
+  }
+
+  drawChart(redraw = false) {
+    if (redraw) {
+      this.gaugeChart.removeGauge()
+    }
+    this.options.centralLabel = this.centralLabel
+    this.gaugeChart = GaugeChart.gaugeChart(
+      this.element,
+      this.canvasWidth,
+      this.options,
+    )
+    this.gaugeChart.updateNeedle(this.needleValue)
+  }
+
   ngOnChanges(changes) {
     if (changes.needleValue && !changes.needleValue.firstChange) {
-      if (
-        changes.needleValue.currentValue !== changes.needleValue.previousValue
-      ) {
-        this.needleValue = changes.needleValue.currentValue
-        this.gaugeChart.updateNeedle(this.needleValue)
-      }
+      this.needleValue = changes.needleValue.currentValue
+      this.gaugeChart.updateNeedle(this.needleValue)
     }
     if (changes.centralLabel && !changes.centralLabel.firstChange) {
-      if (
-        changes.centralLabel.currentValue !== changes.centralLabel.previousValue
-      ) {
-        this.gaugeChart.removeGauge()
-        this.centralLabel = changes.centralLabel.currentValue
-        this.options.centralLabel = this.centralLabel
-        this.gaugeChart = GaugeChart.gaugeChart(
-          this.element,
-          this.canvasWidth,
-          this.options,
-        )
-        this.gaugeChart.updateNeedle(this.needleValue)
-      }
-    }
-    if (changes.bottomLabel && !changes.bottomLabel.firstChange) {
-      if (
-        changes.bottomLabel.currentValue !== changes.bottomLabel.previousValue
-      ) {
-        console.log(changes.bottomLabel.currentValue)
-      }
+      this.centralLabel = changes.centralLabel.currentValue
+      this.drawChart(true)
     }
   }
 }
