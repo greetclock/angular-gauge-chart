@@ -10,7 +10,6 @@
     "e2e": "ng e2e",
     "precommit": "lint-staged"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^7.2.9",
     "@angular/common": "^7.2.9",
@@ -21,7 +20,7 @@
     "@angular/platform-browser": "^7.2.9",
     "@angular/platform-browser-dynamic": "^7.2.9",
     "@angular/router": "^7.2.9",
-    "angular-gauge-chart": "^0.5.0",
+    "angular-gauge-chart": "^0.5.2",
     "core-js": "^2.6.5",
     "rxjs": "^6.4.0",
     "zone.js": "^0.8.29"
