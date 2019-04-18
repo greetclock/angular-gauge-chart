@@ -19,10 +19,10 @@ You can [catch us on twitter](https://twitter.com/recogizer): [@recogizer](https
 Import `angular-gauge-chart` into your module and add as a declaration.
 
 ```typescript
-import { GaugeChartComponent } from 'angular-gauge-chart'
+import { GaugeChartModule } from 'angular-gauge-chart'
 
-declarations: [
-    GaugeChartComponent,
+imports: [
+    GaugeChartModule,
 ]
 ```
 
