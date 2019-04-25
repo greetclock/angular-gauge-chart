@@ -1,3 +1,6 @@
+## 0.6.0
+* Requires Angular 7 as peer dependency.
+
 ## 0.5.3
 * Fixed `angular ng build --prod` failure described in [#16](https://github.com/recogizer/angular-gauge-chart/issues/16) thanks to [@shashi97](https://github.com/shashi97).
 * Fixed a bug described in [#13](https://github.com/recogizer/angular-gauge-chart/issues/13) and [#14](https://github.com/recogizer/angular-gauge-chart/issues/17).
