@@ -20,7 +20,7 @@ import * as GaugeChart from 'gauge-chart'
   styleUrls: ['./gauge-chart.component.css'],
 })
 export class GaugeChartComponent implements OnInit, OnChanges, DoCheck {
-  @ViewChild('gaugeArea') gaugeArea
+  @ViewChild('gaugeArea', { static: true }) gaugeArea
 
   @Input() canvasWidth: number
   @Input() needleValue: number
