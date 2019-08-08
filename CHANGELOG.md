@@ -1,3 +1,6 @@
+## 0.7.0
+* Requires Angular 8 as peer dependency.
+
 ## 0.6.0
 * Requires Angular 7 as peer dependency.
 
