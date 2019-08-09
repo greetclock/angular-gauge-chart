@@ -100,7 +100,7 @@ Some examples of what you can get out of the library using different properties:
 ![Gauge Examples](/img/gauges.png "Gauge Examples")
 
 ## Contributing
-Build the library with `npm run build`. This will fetch all dependencies and then compile the `dist` files. To see the examples locally you can start a web server with `npm start` and go to `localhost:3000`.
+Build the library with `npm run build`. This will fetch all dependencies and then compile the `dist` files. To see the examples locally you can start a web server with `npm start` and go to `localhost:4200`.
 
 ## License
 MIT License. Copyright (c) 2017 RECOGIZER GROUP GmbH.
