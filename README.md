@@ -103,7 +103,7 @@ Some examples of what you can get out of the library using different properties:
 Build the library with `npm run build`. This will fetch all dependencies and then compile the `dist` files. To see the examples locally you can start a web server with `npm start` and go to `localhost:3000`.
 
 ## License
-MIT License. Copyright (c) 2017-2018 RECOGIZER GROUP GmbH.
+MIT License. Copyright (c) 2017 RECOGIZER GROUP GmbH.
 
 [Angular Starter](https://github.com/gdi2290/angular-starter) was used.
 
