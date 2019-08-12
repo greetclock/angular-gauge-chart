@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "public-publish": "ng build angular-gauge-chart && cd dist/angular-gauge-chart && npm publish"
   },
   "dependencies": {
     "@angular/animations": "^8.2.0",
