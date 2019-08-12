@@ -32,12 +32,16 @@ export class AppComponent implements OnInit {
     // this.centralLabel = '' + this.needleValue
     this.options = {
       hasNeedle: true,
+      outerNeedle: false,
       needleColor: 'gray',
+      needleStartValue: 10,
       needleUpdateSpeed: 1000,
-      arcColors: ['rgb(44, 151, 222)', 'lightgray'],
-      arcDelimiters: [30],
-      rangeLabel: ['0', '100'],
-      needleStartValue: 50,
+      // arc options
+      arcColors: [],
+      arcDelimiters: [10, 60, 90],
+      arcPadding: 6,
+      arcPaddingColor: 'white',
+      arcLabels: ['35', '210', '315'],
     }
 
     /*setInterval(() => {
