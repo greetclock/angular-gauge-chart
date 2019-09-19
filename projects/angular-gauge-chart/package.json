@@ -1,6 +1,6 @@
 {
   "name": "angular-gauge-chart",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0"
