@@ -1,3 +1,6 @@
+## 0.7.2
+* `gauge-chart@0.5.3` should not case `ng build --prod` compilation error.
+
 ## 0.7.0
 * Requires Angular 8 as peer dependency.
 
