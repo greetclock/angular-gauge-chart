@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { GaugeChartModule } from 'angular-gauge-chart'
+import { GaugeChartModule } from '../../projects/angular-gauge-chart/src/public_api'
 import { AppComponent } from './app.component'
 
 @NgModule({
