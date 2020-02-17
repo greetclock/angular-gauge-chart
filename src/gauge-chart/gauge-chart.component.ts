@@ -14,6 +14,7 @@ import * as GaugeChart from 'gauge-chart'
 })
 export class GaugeChartComponent implements OnInit, OnChanges {
   @ViewChild('gaugeArea', { static: true }) gaugeArea
+  @ViewChild('gaugeContainer', { static: true }) gaugeContainer
 
   @Input() canvasWidth: number
   @Input() needleValue: number
@@ -31,6 +32,9 @@ export class GaugeChartComponent implements OnInit, OnChanges {
   private gaugeChart: any
 
   ngOnInit() {
+    // override canvasWidth so it matchs the parent with
+    this.canvasWidth = this.gaugeContainer.nativeElement.offsetWidth
+
     // calculate styles for name and bottomLabel
     if (this.name) {
       if (!this.nameFont) {
