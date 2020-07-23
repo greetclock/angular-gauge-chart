@@ -15,6 +15,7 @@ import { Component, OnInit } from '@angular/core'
       [name]="name"
       [bottomLabel]="bottomLabel"
     ></rg-gauge-chart>
+    <button (click)="grow()">Grow</button>
   `,
 })
 export class AppComponent implements OnInit {
@@ -24,11 +25,11 @@ export class AppComponent implements OnInit {
   public options
   public name = 'Gauge chart'
   // public nameFont = 30
-  public bottomLabel = '65'
+  public bottomLabel = '0.0'
   // public bottomLabelFont = 28
   ngOnInit() {
     this.canvasWidth = 300
-    this.needleValue = 65
+    this.needleValue = 0
     // this.centralLabel = '' + this.needleValue
     this.options = {
       hasNeedle: true,
@@ -44,8 +45,13 @@ export class AppComponent implements OnInit {
       arcLabels: ['35', '210', '315'],
     }
 
-    /*setInterval(() => {
-        this.bottomLabel = '' + (+this.bottomLabel + 10) + '.0'
-      }, 2000)*/
+    setInterval(() => {
+      this.needleValue += 10
+      this.bottomLabel = ((this.needleValue * 350) / 100.0).toFixed(1)
+    }, 2000)
+  }
+
+  grow() {
+    this.canvasWidth += 10
   }
 }

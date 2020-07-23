@@ -79,7 +79,7 @@ export class GaugeChartComponent implements OnInit, OnChanges, DoCheck {
   ngDoCheck() {
     if (!this.areEqual(this.options, this.oldOptions)) {
       this.drawChart(true)
-      this.oldOptions = JSON.parse(JSON.stringify(this.options))
+      this.oldOptions = { ...this.options }
     }
   }
 
@@ -101,12 +101,20 @@ export class GaugeChartComponent implements OnInit, OnChanges, DoCheck {
   }
 
   ngOnChanges(changes) {
+    let isRedrawRequest = false
     if (changes.needleValue && !changes.needleValue.firstChange) {
       this.needleValue = changes.needleValue.currentValue
       this.gaugeChart.updateNeedle(this.needleValue)
     }
     if (changes.centralLabel && !changes.centralLabel.firstChange) {
       this.centralLabel = changes.centralLabel.currentValue
+      isRedrawRequest = true
+    }
+    if (changes.canvasWidth && !changes.canvasWidth.firstChange) {
+      this.canvasWidth = changes.canvasWidth.currentValue
+      isRedrawRequest = true
+    }
+    if (isRedrawRequest) {
       this.drawChart(true)
     }
   }
