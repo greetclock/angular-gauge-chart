@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/test-proj",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -24,6 +25,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -33,7 +40,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -112,14 +118,15 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/angular-gauge-chart/tsconfig.lib.json",
             "project": "projects/angular-gauge-chart/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/angular-gauge-chart/ng-package.prod.json"
+              "project": "projects/angular-gauge-chart/ng-package.prod.json",
+              "tsConfig": "projects/angular-gauge-chart/tsconfig.lib.prod.json"
             }
           }
         },
