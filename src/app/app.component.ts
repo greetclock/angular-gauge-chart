@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   public needleValue: number
   public centralLabel: string
   public options
+  public title = 'Gauge chart'
   public name = 'Gauge chart'
   // public nameFont = 30
   public bottomLabel = '65'
