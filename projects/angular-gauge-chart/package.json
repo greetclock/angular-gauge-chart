@@ -2,14 +2,17 @@
   "name": "angular-gauge-chart",
   "version": "0.7.2",
   "peerDependencies": {
-    "@angular/common": "^8.0.0",
-    "@angular/core": "^8.0.0"
+    "@angular/common": "^12.1.1",
+    "@angular/core": "^12.1.1"
   },
   "dependencies": {
     "gauge-chart": "^0.5.1"
   },
   "scripts": {
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../dist/angular-gauge-chart/schematics/collection.json",
+    "postbuild": "npm run copy:collection"
   },
   "lint-staged": {
     "*.{js,json,css}": [
@@ -23,9 +26,9 @@
     ]
   },
   "devDependencies": {
-    "husky": "^0.14.3",
-    "lint-staged": "^7.2.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.2.1",
     "prettier": "^1.13.6",
-    "tslint": "^5.10.0"
+    "tslint": "^6.1.3"
   }
 }

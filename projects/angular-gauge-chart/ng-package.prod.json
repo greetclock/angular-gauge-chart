@@ -1,8 +1,9 @@
 {
-  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/angular-gauge-chart",
-  "lib": {
-    "entryFile": "src/public_api.ts"
+  "extends": "./tsconfig.lib.json",
+  "compilerOptions": {
+    "declarationMap": false
   },
-  "whitelistedNonPeerDependencies": ["gauge-chart"]
+  "angularCompilerOptions": {
+    "compilationMode": "partial"
+  }
 }

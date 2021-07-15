@@ -2,17 +2,23 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "downlevelIteration": true,
-    "module": "esnext",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    "module": "ES2020",
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es5",
+    "importHelpers": true,
+    "target": "es2015",
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
-    "paths": {}
+    "lib": ["es2017", "es2018", "dom"],
+    "paths": {
+      "lib": ["dist/angular-gauge-chart/lib"],
+      "lib/*": ["dist/angular-gauge-chart/lib/*"],
+      "angular-gauge-chart": ["dist/angular-gauge-chart"],
+      "angular-gauge-chart/*": ["dist/angular-gauge-chart/*"]
+    }
   }
 }
