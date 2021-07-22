@@ -7,9 +7,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "test-proj": {
-      "root": "",
-      "sourceRoot": "src",
-      "projectType": "application",
+      "root": "projects/angular-gauge-chart",
+      "sourceRoot": "projects/angular-gauge-chart/src",
+      "projectType": "library",
       "prefix": "app",
       "schematics": {},
       "architect": {
