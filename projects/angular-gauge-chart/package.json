@@ -11,6 +11,11 @@
   "scripts": {
     "precommit": "lint-staged"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/recogizer/angular-gauge-chart.git",
+    "directory": "projects/angular-gauge-chart"
+  },
   "lint-staged": {
     "*.{js,json,css}": [
       "prettier --write",
