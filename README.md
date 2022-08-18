@@ -83,7 +83,7 @@ options = { ... } :
 | arcColors | [array of values supported by CSS](https://www.w3schools.com/colors/default.asp) | colorizes gauge with specified color |
 | arcDelimiters | array of numbers from 0 to 100 | specifies delimiters of the gauge in ascending order |
 | rangeLabel | array of two strings | depicts gauge ranges on both sides of the chart |
-| centralLabel | string | depicts gauge inner label |
+| centralLabel | [string](https://www.scaler.com/topics/javascript/javascript-string/) | depicts gauge inner label |
 
 name?: string (will be shown above the gauge)
 
